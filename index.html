@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculadora de Matrices</title>
-    
 </head>
 <body>
     <h1>Calculadora de Matrices Interactiva</h1>
@@ -23,6 +22,35 @@
         </div>
     </section>
 
-    
+    <section id="matrices">
+        <div id="matrizA">
+        </div>
+        <div id="matrizB">
+        </div>
+    </section>
+
+    <section id="operaciones">
+        <h2>Operaciones</h2>
+        <button id="suma">Sumar (A + B)</button>
+        <button id="resta">Restar (A - B)</button>
+        <button id="multiplicar">Multiplicar (A * B)</button>
+        <div class="operacion">
+            <label>Constante: <input type="number" id="constante" value="1"></label>
+            <button id="escalar">Multiplicar por constante (k * A)</button>
+        </div>
+        <button id="transponer">Transponer (A<sup>T</sup>)</button>
+        <button id="determinante">Determinante (A)</button>
+        <button id="inversa">Inversa (A<sup>-1</sup>)</button>
+        <div class="operacion">
+            <label>Tamaño: <input type="number" id="sizeI" min="1" value="2"></label>
+            <button id="identidad">Matriz Identidad</button>
+        </div>
+    </section>
+
+    <section id="resultado">
+        <h2>Resultado</h2>
+        <div id="resultMatrix"></div>
+    </section>
+
 </body>
 </html>
