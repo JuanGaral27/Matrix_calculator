@@ -128,3 +128,35 @@ function multiplicar() {
     }
     mostrarResultado(C);
 }
+
+function multiplicarEscalar() {
+    const k = parseFloat(document.getElementById('constante').value);
+    const A = leerMatriz('matrizA');
+    if (!A || isNaN(k)) {
+        alert('Por favor ingrese una matriz válida y un escalar numérico.');
+        return;
+    }
+    const rows = A.length, cols = A[0].length;
+    const C = [];
+    for (let i = 0; i < rows; i++) {
+        C[i] = [];
+        for (let j = 0; j < cols; j++) {
+            C[i][j] = A[i][j] * k;
+        }
+    }
+    mostrarResultado(C);
+}
+
+function transponer() {
+    const A = leerMatriz('matrizA');
+    if (!A) return;
+    const rows = A.length, cols = A[0].length;
+    const C = [];
+    for (let i = 0; i < cols; i++) {
+        C[i] = [];
+        for (let j = 0; j < rows; j++) {
+            C[i][j] = A[j][i];
+        }
+    }
+    mostrarResultado(C);
+}
