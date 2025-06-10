@@ -50,4 +50,58 @@ function mostrarResultado(matriz) {
         resDiv.innerText = matriz;
         return;
     }
+    const rows = matriz.length;
+    const cols = matriz[0].length;
+    for (let i = 0; i < rows; i++) {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'matrix-row';
+        for (let j = 0; j < cols; j++) {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = matriz[i][j];
+            input.readOnly = true;
+            rowDiv.appendChild(input);
+        }
+        resDiv.appendChild(rowDiv);
+    }
+}
+
+function sumar() {
+    const A = leerMatriz('matrizA');
+    const B = leerMatriz('matrizB');
+    if (!A || !B) return;
+    const rowsA = A.length, colsA = A[0].length;
+    const rowsB = B.length, colsB = B[0].length;
+    if (rowsA !== rowsB || colsA !== colsB) {
+        alert('Para sumar, las matrices deben tener la misma dimensión.');
+        return;
+    }
+    const C = [];
+    for (let i = 0; i < rowsA; i++) {
+        C[i] = [];
+        for (let j = 0; j < colsA; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+    mostrarResultado(C);
+}
+
+function restar() {
+    const A = leerMatriz('matrizA');
+    const B = leerMatriz('matrizB');
+    if (!A || !B) return;
+    const rowsA = A.length, colsA = A[0].length;
+    const rowsB = B.length, colsB = B[0].length;
+    if (rowsA !== rowsB || colsA !== colsB) {
+        alert('Para restar, las matrices deben tener la misma dimensión.');
+        return;
+    }
+    const C = [];
+    for (let i = 0; i < rowsA; i++) {
+        C[i] = [];
+        for (let j = 0; j < colsA; j++) {
+            C[i][j] = A[i][j] - B[i][j];
+        }
+    }
+    mostrarResultado(C);
 }
