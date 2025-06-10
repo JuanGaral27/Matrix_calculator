@@ -105,3 +105,26 @@ function restar() {
     }
     mostrarResultado(C);
 }
+function multiplicar() {
+    const A = leerMatriz('matrizA');
+    const B = leerMatriz('matrizB');
+    if (!A || !B) return;
+    const rowsA = A.length, colsA = A[0].length;
+    const rowsB = B.length, colsB = B[0].length;
+    if (colsA !== rowsB) {
+        alert('Para multiplicar, el número de columnas de A debe igualar el número de filas de B.');
+        return;
+    }
+    const C = [];
+    for (let i = 0; i < rowsA; i++) {
+        C[i] = [];
+        for (let j = 0; j < colsB; j++) {
+            let sum = 0;
+            for (let k = 0; k < colsA; k++) {
+                sum += A[i][k] * B[k][j];
+            }
+            C[i][j] = sum;
+        }
+    }
+    mostrarResultado(C);
+}

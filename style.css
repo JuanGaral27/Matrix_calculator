@@ -11,6 +11,10 @@ h1 {
     margin-bottom: 20px;
     color: #bb86fc;
 }
+#operaciones h2 {
+    color: #bb86fc;
+}
+
 #controles {
     display: flex;
     justify-content: space-around;
@@ -130,4 +134,3 @@ label {
         width: 100%;
     }
 }
-
