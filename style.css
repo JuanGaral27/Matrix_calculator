@@ -11,3 +11,30 @@ h1 {
     margin-bottom: 20px;
     color: #bb86fc;
 }
+#controles {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.dimension {
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    margin: 10px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.dimension h2 {
+    margin-top: 0;
+    color: #bb86fc;
+}
+
+.dimension label {
+    display: block;
+    margin: 5px 0;
+    color: #e0e0e0;
+}
