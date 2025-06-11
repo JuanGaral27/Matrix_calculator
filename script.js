@@ -189,3 +189,60 @@ function determinante() {
     const det = determinanteMatriz(A);
     mostrarResultado(det);
 }
+function inversa() {
+    let A = leerMatriz('matrizA');
+    if (!A) return;
+    const n = A.length;
+    if (n !== A[0].length) {
+        alert('La matriz debe ser cuadrada para calcular la inversa.');
+        return;
+    }
+    
+    let I = [];
+    for (let i = 0; i < n; i++) {
+        I[i] = [];
+        for (let j = 0; j < n; j++) {
+            I[i][j] = (i === j) ? 1 : 0;
+        }
+    }
+   
+    let M = A.map(row => row.slice());
+    for (let i = 0; i < n; i++) {
+       
+        let maxEl = Math.abs(M[i][i]);
+        let maxRow = i;
+        for (let k = i + 1; k < n; k++) {
+            if (Math.abs(M[k][i]) > maxEl) {
+                maxEl = Math.abs(M[k][i]);
+                maxRow = k;
+            }
+        }
+        
+        if (i !== maxRow) {
+            [M[i], M[maxRow]] = [M[maxRow], M[i]];
+            [I[i], I[maxRow]] = [I[maxRow], I[i]];
+        }
+       
+        if (M[i][i] === 0) {
+            alert('La matriz es singular y no tiene inversa.');
+            return;
+        }
+        
+        let pivInv = 1 / M[i][i];
+        for (let j = 0; j < n; j++) {
+            M[i][j] *= pivInv;
+            I[i][j] *= pivInv;
+        }
+        
+        for (let k = 0; k < n; k++) {
+            if (k !== i) {
+                let factor = M[k][i];
+                for (let j = 0; j < n; j++) {
+                    M[k][j] -= factor * M[i][j];
+                    I[k][j] -= factor * I[i][j];
+                }
+            }
+        }
+    }
+    mostrarResultado(I);
+}
