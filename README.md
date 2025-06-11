@@ -18,7 +18,7 @@ Funcionalidades
 1. **Clona o descarga este repositorio:**
 
    ```bash
-   git clone https://github.com/tu-usuario/nombre-repositorio.git
+   git clone https://github.com/tu-usuario/Matrix_calculator.git
    ```
 
 2. **Abre el archivo `index.html` en tu navegador.**
