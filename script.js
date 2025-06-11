@@ -1,4 +1,8 @@
 function generarMatriz(idContenedor, rows, cols) {
+    if (rows < 1 || rows >  10 || cols < 1 || cols > 10) {
+        alert("El tamaño de la matriz debe estar entre 1 y 10");
+        return;
+    }
     const cont = document.getElementById(idContenedor);
     cont.innerHTML = '';
     for (let i = 0; i < rows; i++) {
