@@ -246,3 +246,47 @@ function inversa() {
     }
     mostrarResultado(I);
 }
+
+function identidad() {
+    const size = parseInt(document.getElementById('sizeI').value);
+    if (isNaN(size) || size < 1) {
+        alert('Ingrese un tamaño válido para la matriz identidad.');
+        return;
+    }
+    const I = [];
+    for (let i = 0; i < size; i++) {
+        I[i] = [];
+        for (let j = 0; j < size; j++) {
+            I[i][j] = (i === j ? 1 : 0);
+        }
+    }
+    mostrarResultado(I);
+}
+
+// Eventos de botones
+document.getElementById('genA').addEventListener('click', () => {
+    const rows = parseInt(document.getElementById('rowsA').value);
+    const cols = parseInt(document.getElementById('colsA').value);
+    if (rows > 0 && cols > 0) {
+        generarMatriz('matrizA', rows, cols);
+    }
+});
+document.getElementById('genB').addEventListener('click', () => {
+    const rows = parseInt(document.getElementById('rowsB').value);
+    const cols = parseInt(document.getElementById('colsB').value);
+    if (rows > 0 && cols > 0) {
+        generarMatriz('matrizB', rows, cols);
+    }
+});
+
+document.getElementById('suma').addEventListener('click', sumar);
+document.getElementById('resta').addEventListener('click', restar);
+document.getElementById('multiplicar').addEventListener('click', multiplicar);
+document.getElementById('escalar').addEventListener('click', multiplicarEscalar);
+document.getElementById('transponer').addEventListener('click', transponer);
+document.getElementById('determinante').addEventListener('click', determinante);
+document.getElementById('inversa').addEventListener('click', inversa);
+document.getElementById('identidad').addEventListener('click', identidad);
+
+generarMatriz('matrizA', 2, 2);
+generarMatriz('matrizB', 2, 2);
