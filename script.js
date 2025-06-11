@@ -160,3 +160,32 @@ function transponer() {
     }
     mostrarResultado(C);
 }
+function determinanteMatriz(A) {
+    const n = A.length;
+    if (n === 1) return A[0][0];
+    if (n === 2) return A[0][0]*A[1][1] - A[0][1]*A[1][0];
+    let det = 0;
+    for (let k = 0; k < n; k++) {
+        const subMat = [];
+        for (let i = 1; i < n; i++) {
+            const row = [];
+            for (let j = 0; j < n; j++) {
+                if (j !== k) row.push(A[i][j]);
+            }
+            subMat.push(row);
+        }
+        det += ((k % 2 === 0 ? 1 : -1) * A[0][k] * determinanteMatriz(subMat));
+    }
+    return det;
+}
+
+function determinante() {
+    const A = leerMatriz('matrizA');
+    if (!A) return;
+    if (A.length !== A[0].length) {
+        alert('La matriz debe ser cuadrada para calcular el determinante.');
+        return;
+    }
+    const det = determinanteMatriz(A);
+    mostrarResultado(det);
+}
