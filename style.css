@@ -21,16 +21,16 @@ h1 {
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
-
 .dimension {
     background: #1e1e1e;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.6);
     margin: 10px;
-    flex: 1;
-    min-width: 200px;
+    width: 250px;   
+    flex: none;   
 }
+
 
 .dimension h2 {
     margin-top: 0;
@@ -133,4 +133,36 @@ label {
     button {
         width: 100%;
     }
+}
+#operacion-resultado {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+#resultado {
+    flex: 1;
+    min-width: 200px;
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
+#resultado h2 {
+    color: #bb86fc;
+    text-align: center;
+}
+
+.dimension input[type="number"] {
+    width: 60px;
+    padding: 4px;
+    font-size: 14px;
+}
+.matrix-row {
+    display: flex;
+    justify-content: center; 
 }
